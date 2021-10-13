@@ -21,5 +21,4 @@ export class faucetController extends Controller {
         //TODO: Pass the token amount parameter through the configuration item
         return new FaucetService().sendToken(address, 1);
     }
-
 }

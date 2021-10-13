@@ -1,4 +1,4 @@
-import subdaoNode from '../../network/substrate';
+import * as substrate from '../../network/substrate';
 
 export interface Faucet {
     sendToken(address: string, amount: number): Promise<void>;
@@ -7,6 +7,7 @@ export interface Faucet {
 export class FaucetService implements Faucet {
     async sendToken(address: string, amount: number): Promise<void> {
         // TODO:
-        new subdaoNode().sendToken(address, amount);
+        // new substrate.subdaoNode().sendToken(address, amount);
+        return
     }
 }

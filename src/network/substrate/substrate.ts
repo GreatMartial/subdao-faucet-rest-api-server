@@ -5,7 +5,6 @@ import { KeyringPair } from '@polkadot/keyring/types';
 
 import { config } from '../../../config';
 import * as fs from 'fs';
-import { FaucetServiceInterface } from '../../services/faucet';
 
 const schema: string = config.app.schema;
 const url: string = config.app.host + config.app.port;
@@ -18,8 +17,7 @@ const toAddr: string = config.network[0].contractAddress;
 
 // test
 const alice: string = '123';
-
-export class subdaoNode implements FaucetServiceInterface {
+export class subdaoNode {
   api: ApiPromise | undefined;
 
   account: KeyringPair | undefined;
@@ -58,7 +56,7 @@ export class subdaoNode implements FaucetServiceInterface {
     return this;
   }
 
-  public async sendToken(address: string, amount: string): Promise<(boolean)> {
+  public async sendToken(address: string, amount: number): Promise<(void)> {
     // let result: DripResponse;
 
     try {
@@ -84,11 +82,10 @@ export class subdaoNode implements FaucetServiceInterface {
             }
           });
       }
-      return true;
     } catch (e) {
       console.error(e);
-      return false;
     }
+    return
   }
 }
 

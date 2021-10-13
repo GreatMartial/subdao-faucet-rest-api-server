@@ -1,6 +1,6 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import { RegisterRoutes } from '../build/routes';
+import * as bodyParser from 'body-parser';
+import { RegisterRoutes } from './routes';
 
 export const app = express();
 
@@ -10,5 +10,6 @@ app.use(
     })
 );
 app.use(bodyParser.json());
+app.use(logger)
 
 RegisterRoutes(app);
